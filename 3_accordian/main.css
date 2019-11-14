@@ -1,0 +1,25 @@
+.ac-select {
+
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    background-color: darkgrey;
+    color: black;
+    border-top: 1px black solid;
+    font-weight: 600px;
+
+}
+
+.ac-content {
+   height: 0em;
+    transition: height 350ms ease-in-out;
+   font-size: 0px;
+}
+
+.ac-content.active {
+    height: 2em;
+    padding: 1em;
+    border-top: 1px black solid;
+    font-size: 0.8em;
+
+}

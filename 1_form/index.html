@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+</head>
+<body>
+
+
+<div class="ui one column grid container">
+    <div class="column">
+        <div class="ui segment">
+            <div id="errors"></div>
+
+
+                <div class="field">
+                    <label>Username*:</label>
+                    <input id="user_name">
+                </div>
+                <div class="field">
+                    <label>Password*:</label>
+                    <input type="password" id="pass1">
+                </div>
+                <div class="field">
+                    <label>Confirm Password*:</label>
+                    <input type="password" id="pass2">
+                </div>
+                <div class="field">
+                    <label>Email*:</label>
+                    <input type="email" id="email">
+                </div>
+                <div class="field">
+                    <label>Birthdate:</label>
+                    <input id="m-bday" maxlength="2" minlength="2" placeholder="mm">
+                    <select>
+
+                    </select>
+                    /
+                    <input id="d-bday"  maxlength="2" minlength="2" placeholder="dd">/<input id="y-bday"  maxlength="4" minlength="4" placeholder="yyyy">
+                </div>
+
+                <button class="ui button" onclick="validate()" type="submit">Submit</button>
+
+        </div>
+    </div>
+</div>
+
+</body>
+<script type="application/javascript" src="index.js"></script>
+</html>
