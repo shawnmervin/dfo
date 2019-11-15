@@ -1,12 +1,38 @@
+function init() {
+
+    for (var i = 1; i < 13; i++) {
+
+        select = document.getElementById('m-Bday');
+        select.options[select.options.length] = new Option(i, i);
+    }
+
+
+    for (var i = 1; i < 32; i++) {
+
+        select = document.getElementById('d-Bday');
+        select.options[select.options.length] = new Option(i, i);
+    }
+
+    var year_today = new Date().getFullYear() + 1;
+    for (var i = 1900; i < year_today; i++) {
+
+        select = document.getElementById('y-Bday');
+        select.options[select.options.length] = new Option(i, i);
+    }
+
+}
+
+window.onload = init();
+
 function validate() {
 
     var username_inpt = document.getElementById('user_name').value;
     var email_inpt = document.getElementById('email').value;
     var pass1_inpt = document.getElementById('pass1').value;
     var pass2_inpt = document.getElementById('pass2').value;
-    var mbday_inpt = document.getElementById('m-bday').value;
-    var dbday_inpt = document.getElementById('d-bday').value;
-    var ybday_inpt = document.getElementById('y-bday').value;
+    var mbday_inpt = document.getElementById('m-Bday').value;
+    var dbday_inpt = document.getElementById('d-Bday').value;
+    var ybday_inpt = document.getElementById('y-Bday').value;
 
     var bday = mbday_inpt + '/' + dbday_inpt + '/' + ybday_inpt;
 
@@ -74,34 +100,44 @@ function validate() {
 
         console.log('server time');
         var xhr = new XMLHttpRequest();
+
+
+        var sendArray = [{
+            username: username_inpt,
+            email: email_inpt,
+            pass1: pass1_inpt,
+            bday: bday
+        }];
+        //console.dir( JSON.stringify(sendArray));
         xhr.open('POST', 'api.php');
-        xhr.onload = function() {
-            if (xhr.status === 200) {
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == XMLHttpRequest.DONE) {
                 display_server_response(xhr.responseText);
+            }
+        }
+
+        xhr.send('sendArray=' + JSON.stringify(sendArray));
+
+
+        function display_server_response(response) {
+            console.dir('response' + response);
+            if (response.toString() == "true" ) {
+                console.log('Success redirect');
+                alert('Nice work your signed up');
+            } else if (response == "dupe") {
+                alert('This email already exists');
+            } else {
+                console.log('not true');
+                alert('Add failed');
 
             }
-            else {
-                alert('Request failed.  Returned status of ' + xhr.status);
-            }
-        };
-        xhr.send();
-    }
-
-
-
-    function display_server_response(response){
-        console.log('response'+response);
-       if(!response) {
-           console.log('not true');
-           append_errors(response);
-       }else{
-
-            console.log('Success redirect');
-
-
         }
     }
+
+
 }
 
 

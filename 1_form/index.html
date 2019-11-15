@@ -13,7 +13,7 @@
     <div class="column">
         <div class="ui segment">
             <div id="errors"></div>
-
+            <div id="success"></div>
 
                 <div class="field">
                     <label>Username*:</label>
@@ -33,12 +33,17 @@
                 </div>
                 <div class="field">
                     <label>Birthdate:</label>
-                    <input id="m-bday" maxlength="2" minlength="2" placeholder="mm">
-                    <select>
 
+                    <select id="m-Bday">
+                        <option value="-1">MM</option>
                     </select>
-                    /
-                    <input id="d-bday"  maxlength="2" minlength="2" placeholder="dd">/<input id="y-bday"  maxlength="4" minlength="4" placeholder="yyyy">
+                    <select id="d-Bday">
+                        <option value="-1">DD</option>
+                    </select>
+                    <select id="y-Bday">
+                        <option value="-1">YYYY</option>
+                    </select>
+
                 </div>
 
                 <button class="ui button" onclick="validate()" type="submit">Submit</button>

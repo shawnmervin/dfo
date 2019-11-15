@@ -1,88 +1,80 @@
-
-/* Mobile first */
-.c {
-    float: left;
-    width: 100%;
-}
-
-/* Responsive column widths */
-@media (min-width: 500px) {
-    /* 1 */
-    .c:first-child:last-child {
-        width: 100%;
-    }
-
-    /* 2 */
-    .c:nth-last-child(2):first-child,
-    .c:nth-last-child(2):first-child + .c {
-        width: 50%;
-    }
-
-    /* 3 */
-    .c {
-        width: 33.33333%;
-    }
-
-    /* 1 extra */
-    .c:nth-child(3n + 1):last-child {
-        width: 100%;
-    }
-
-    /* 2 extra */
-    .c:nth-child(3n + 1):nth-last-child(2),
-    .c:nth-child(3n + 1):nth-last-child(2) + .c {
-        width: 50%;
-    }
-}
-
-
-/* general styling */
-
-
-/* general scaffolding */
+/* Set the background color of body to tan */
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #343536;
+    background-color: tan;
 }
+
+
+/* On screens that are 2400px  */
+@media screen and (max-width: 2400px) {
+    body {
+        background-color: green;
+    }
+
+    .header-wrapper{
+        font-size: 36px;
+    }
+}
+
+
+/* On screens that are 992px or less*/
+@media screen and (max-width: 992px) {
+    body {
+        background-color: blue;
+    }
+
+    .header-wrapper{
+        font-size: 22px;
+    }
+}
+
+/* On screens that are 400px or less */
+@media screen and (max-width: 400px) {
+    body {
+        background-color: olive;
+    }
+
+    .header-wrapper{
+        font-size: 16px;
+    }
+}
+
+
 .header-wrapper{
     background-color: darkblue;
     text-align: center;
     color: white;
-
-}
-.wrapper {
-
-}
-.wrapper:before,
-.wrapper:after{
-    content: ' ';
-    display: table;
-    clear: both;
 }
 
-
-/* coloring/sizing */
 .c {
     background-color: #75d6f9;
     color: white;
-    padding: 10px;
+    padding: 5px;
     box-sizing: border-box;
     moz-box-sizing: border-box;
     text-align: center;
+
+    float: left;
 }
 .c img{
     height:  auto;
     width: 50%;
+
 }
 
-.c:nth-child(3n - 2) {
-    background-color: #26bbf0;
-}
-.c:nth-child(3n) {
-    background-color: #11a3d7;
-}
+
 .points{
     text-align: left;
     list-style-type: none;
+    background-color: grey;
+    color:black;
+    vertical-align: middle;
+    float: left;
 
+}
+
+.points img{
+
+    width: 10%;
+    height: auto;
+    margin-right: 5%;
 }
